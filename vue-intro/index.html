@@ -10,11 +10,15 @@
 <body>
   <div id="app" v-bind:title="message">
     <h3>Interpolation</h3>
+    <!-- interpolation -->
     {{ message }}
+    <!-- v-once one time binding -->
+    <p v-once>{{ message }}</p>
   </div>
   <hr />
   <div id="app-2">
     <h3>Element attributes binding</h3>
+    <!-- v-bind:title title attibute binding -->
     <span v-bind:title="message">
       Hover your mouse over me for a few seconds
       to see my dynamically bound title!
@@ -23,8 +27,10 @@
   <hr />
   <div id="app-3">
     <h3>Conditionals and Loops</h3>
+    <!-- v-if conditional render -->
     <p v-if="seen">Now you see me</p>
     <ol>
+      <!-- v-for loop render -->
       <li v-for="todo in todos">
         {{ todo.text }}
       </li>
@@ -34,18 +40,21 @@
   <div id="app-4">
     <h3>Handling user input</h3>
     <p>{{ message }}</p>
+    <!-- v-on:click click event binding -->
     <button v-on:click="reverseMessage">Reverse Message</button>
   </div>
   <hr />
   <div id="app-5">
     <h3>Model</h3>
     <p>{{ message }}</p>
+    <!-- v-model model binding -->
     <input v-model="message">
   </div>
   <hr />
   <div id="app-6">
     <h3>Component</h3>
     <ol>
+      <!-- todo-item component -->
       <todo-item
         v-for="item in groceryList"
         v-bind:todo="item"
