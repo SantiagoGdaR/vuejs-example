@@ -19,10 +19,15 @@
   <div id="app-2">
     <h3>Element attributes binding</h3>
     <!-- v-bind:title title attibute binding -->
-    <span v-bind:title="message">
+    <p v-bind:title="message">
       Hover your mouse over me for a few seconds
       to see my dynamically bound title!
-    </span>
+    </p>
+    <!-- v-bind:title shorthand -->
+    <p :title="message">
+      Hover your mouse over me for a few seconds
+      to see my dynamically bound title!
+    </p>
   </div>
   <hr />
   <div id="app-3">
@@ -42,6 +47,10 @@
     <p>{{ message }}</p>
     <!-- v-on:click click event binding -->
     <button v-on:click="reverseMessage">Reverse Message</button>
+    <!-- v-on:click click event binding with prevent default -->
+    <button v-on:click.prevent="reverseMessage">Reverse Message</button>    
+    <!-- v-on:click shorthand -->
+    <button @click="reverseMessage">Reverse Message</button>
   </div>
   <hr />
   <div id="app-5">
@@ -61,6 +70,13 @@
         v-bind:key="item.id">
       </todo-item>
     </ol>
+  </div>
+  <hr />
+  <div id="app-7">
+    <h3>Computed and watchers</h3>
+    <p>{{ message }}</p>
+    <p>{{ reverseMessage }}</p>
+    <p>old message: {{ oldInfo }}</p>
   </div>
   <script src="https://unpkg.com/vue"></script>
   <script src="app/app.js"></script>

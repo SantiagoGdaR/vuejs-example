@@ -35,7 +35,7 @@ var app4 = new Vue({
   },
   methods: {
     reverseMessage: function () {
-      this.message = this.message.split('').reverse().join('')
+      this.message = this.message.split('').reverse().join('');
     }
   }
 });
@@ -61,5 +61,30 @@ var app6 = new Vue({
       { id: 1, text: 'Cheese' },
       { id: 2, text: 'Whatever else humans are supposed to eat' }
     ]
+  }
+});
+
+//computed and watchers
+var app7 = new Vue({
+  el: '#app-7',
+  data: {
+    message: 'Hello Vue!',
+    oldInfo: ''
+  },
+  //diff between method and computed: 
+  //computed: a computed property will only re-evaluate when some of its dependencies have changed [catching].
+  //this means as long as message has not changed, multiple access to the reversedMessage computed property will 
+  //immediately return the previously computed result without having to run the function again.
+  //method: a method invocation will always run the function whenever a re-render happens.
+  computed: {
+    reverseMessage: function () {
+      return this.message.split('').reverse().join('');
+    }
+  },
+  watch:{
+    message: function(newMessage, oldMessage){
+      this.oldInfo =  oldMessage;
+      return;
+    }
   }
 });
