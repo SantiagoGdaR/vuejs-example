@@ -10,17 +10,33 @@ Vue.component('text-component', {
 });
 
 Vue.component('child-component', {
-  props: ['message'],
-  template: '<p>{{ message }}</p>'
+  props: {
+    message:{
+      type: String,
+      required: true
+    }
+  },
+  template: '<div><p>{{ message }}</p><button @click="addClick"> Click</button></div>',
+  methods:{
+    addClick: function(){
+      this.$emit('incrementClicks')
+    }
+  }
 });
 
 //local component registration
 var buttonComponent = {
   //component must have exactly one root element
-  template: '<p><child-component :message="messageForChild"></child-component><button> Local Btn </button></p>',
+  template: '<p><child-component :message="messageForChild" @incrementClicks="increaseTotalCicks"></child-component>Total Clicks: {{totalClicks}}</p>',
   data: function(){
     return {
-      messageForChild: 'Message for Child Component'
+      messageForChild: 'Message for Child Component',
+      totalClicks: 0
+    }
+  },
+  methods: {
+    increaseTotalCicks: function(){
+      this.totalClicks += 1;
     }
   }
 }
