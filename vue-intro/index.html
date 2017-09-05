@@ -6,6 +6,7 @@
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
+  <link rel="stylesheet" href="app/app.css">
 </head>
 <body>
   <div id="app" v-bind:title="message">
@@ -77,6 +78,22 @@
     <p>{{ message }}</p>
     <p>{{ reverseMessage }}</p>
     <p>old message: {{ oldInfo }}</p>
+  </div>
+  <hr />
+  <div id="app-8">
+    <h3>Class and Style bindings</h3>
+    <div class="static"
+          v-bind:class="{ 'text-danger': hasError }">
+          class binding text from data property
+    </div>
+    <button @click="changeData">Change Class status</button>    
+    <div class="static"
+          v-bind:class="[bold, bigFont, { 'text-danger': hasError }]">
+          class binding text from array of properties
+    </div>
+    <text-line v-bind:message="message" 
+                v-bind:class="[bold, bigFont, { 'text-danger': hasError }]">
+      </text-line>
   </div>
   <script src="https://unpkg.com/vue"></script>
   <script src="app/app.js"></script>

@@ -81,10 +81,31 @@ var app7 = new Vue({
       return this.message.split('').reverse().join('');
     }
   },
+  //is most useful when you want to perform asynchronous or expensive operations in response to changing data.
   watch:{
     message: function(newMessage, oldMessage){
       this.oldInfo =  oldMessage;
       return;
+    }
+  }
+});
+
+//class and style bindings
+Vue.component('text-line', {
+  props: ['message'],
+  template: '<p>{{ message }}</p>'
+});
+var app8 = new Vue({
+  el: '#app-8',
+  data: {
+    hasError: false,
+    bold: 'bold',
+    bigFont: 'big-font',
+    message: 'component text'
+  },
+  methods: {
+    changeData: function(){
+      this.hasError = !this.hasError;
     }
   }
 });
