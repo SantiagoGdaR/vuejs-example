@@ -47,9 +47,9 @@
     <h3>Handling user input</h3>
     <p>{{ message }}</p>
     <!-- v-on:click click event binding -->
-    <button v-on:click="reverseMessage">Reverse Message</button>
+    <button v-on:click.once="reverseMessage">Reverse Message Once</button>
     <!-- v-on:click click event binding with prevent default -->
-    <button v-on:click.prevent="reverseMessage">Reverse Message</button>    
+    <button v-on:click.stop.prevent="reverseMessage">Reverse Message Stop and Prevent</button>    
     <!-- v-on:click shorthand -->
     <button @click="reverseMessage">Reverse Message</button>
   </div>
