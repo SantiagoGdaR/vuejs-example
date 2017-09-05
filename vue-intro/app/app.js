@@ -111,3 +111,32 @@ var app8 = new Vue({
     }
   }
 });
+
+//conditinal rendering
+var app9 = new Vue({
+  el: '#app-9',
+  data: {
+    showOkText: false
+  },
+  methods:{
+    toggleShowText: function(){
+      this.showOkText = !this.showOkText;
+    }
+  }
+});
+
+//list rendering
+var app10 = new Vue({
+  el: '#app-10',
+  data: {
+    todos: [
+      { text: 'Learn JavaScript' },
+      { text: 'Learn Vue' },
+      { text: 'Build something awesome' }
+    ],
+    user:{
+      name: 'John',
+      age: 30
+    }
+  }
+});

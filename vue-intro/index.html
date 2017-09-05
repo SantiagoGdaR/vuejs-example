@@ -74,6 +74,7 @@
   </div>
   <hr />
   <div id="app-7">
+    <!--computed and watchers-->
     <h3>Computed and watchers</h3>
     <p>{{ message }}</p>
     <p>{{ reverseMessage }}</p>
@@ -81,6 +82,7 @@
   </div>
   <hr />
   <div id="app-8">
+    <!--class and style bindings-->
     <h3>Class and Style bindings</h3>
     <div class="static"
           v-bind:class="{ 'text-danger': hasError }">
@@ -97,6 +99,37 @@
     <p v-bind:style="{color: activeColor, fontSize: fontSize + 'px'}">
       style binding
     </p>
+  </div>
+  <hr />
+  <div id="app-9">
+    <!--conditional rendering-->
+    <h3>Conditional Rendering</h3>
+    <p v-if="showOkText">OK</p>
+    <p v-else>NOT OK</p>
+    <button @click="toggleShowText">Change show OK</button>  
+    <!--diff with v-if is that v-show is always render
+    v-if: higher toogle cost (if not toggling use if)
+    v-show: higher initial render (so to toggle use if)-->
+    <p v-show="showOkText">showing text!!</p>
+  </div>
+  <hr />
+  <div id="app-10">
+    <h3>List Rendering</h3>
+    <!-- list rendering -->
+    <ol>
+      <!-- v-for loop render (in this case using of so that it is closer to JavaScript’s syntax for iterators) -->
+      <li v-for="(todo, index) of todos">
+        {{ todo.text }} - index: {{ index }}
+      </li>
+    </ol>
+    <!-- object rendering -->
+    <ol>
+      <!--key allows us to render the key of the object, :key allows us to provide a unique 
+      value to the element improving the performance on re renders-->
+      <li v-for="(value, key, index) in user" :key="value">
+        {{ value }} - index: {{ index }} - key: {{ key }}
+      </li>
+    </ol>
   </div>
   <script src="https://unpkg.com/vue"></script>
   <script src="app/app.js"></script>
