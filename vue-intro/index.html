@@ -93,7 +93,10 @@
     </div>
     <text-line v-bind:message="message" 
                 v-bind:class="[bold, bigFont, { 'text-danger': hasError }]">
-      </text-line>
+    </text-line>
+    <p v-bind:style="{color: activeColor, fontSize: fontSize + 'px'}">
+      style binding
+    </p>
   </div>
   <script src="https://unpkg.com/vue"></script>
   <script src="app/app.js"></script>

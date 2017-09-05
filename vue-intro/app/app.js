@@ -101,7 +101,9 @@ var app8 = new Vue({
     hasError: false,
     bold: 'bold',
     bigFont: 'big-font',
-    message: 'component text'
+    message: 'component text',
+    activeColor: 'red',
+    fontSize: 30
   },
   methods: {
     changeData: function(){
